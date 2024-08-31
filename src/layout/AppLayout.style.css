@@ -1,5 +1,8 @@
 body {
   margin: 0;
   background-color: black !important;
-  color: white;
+  color: white !important;
+}
+.navbar {
+  --bs-navbar-toggler-icon-bg: url(https://img.icons8.com/?size=100&id=83195&format=png&color=FFFFFF) !important;
 }

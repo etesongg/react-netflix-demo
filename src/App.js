@@ -22,6 +22,7 @@ function App() {
           <Route path=":id" element={<MovieDetailPage />} />
         </Route>
       </Route>
+      
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
