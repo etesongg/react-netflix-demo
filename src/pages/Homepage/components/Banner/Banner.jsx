@@ -6,7 +6,6 @@ import LoadingSpinner from "../../../components/Spinner/LoadingSpinner";
 
 const Banner = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
-  console.log(data);
   if (isLoading) {
     return <LoadingSpinner />;
   }
