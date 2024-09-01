@@ -1,25 +1,55 @@
-.banner {
-    height: 56vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+@font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
 }
- .banner::before{ 
-    content: '';
-    background: linear-gradient(to top, black, transparent);
-    position: absolute;
-    left: 0;
-    height: 56vh;
-    width: 100%;
+
+.banner {
+  height: 56vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-end;
+}
+.banner::before {
+  content: "";
+  background: linear-gradient(to top, black, transparent);
+  position: absolute;
+  left: 0;
+  height: 56vh;
+  width: 100%;
 }
 .banner-text-area {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding: 20px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
 }
-.banner-text-area > *{
-    z-index: 2;
+.banner-text-area > * {
+  z-index: 2;
 }
+.banner-text-area > h1 {
+    font-family: 'Paperlogy-8ExtraBold';
+}
+.banner-text-area > p {
+    font-family: 'Paperlogy-4Regular';
+}
+
+@media (max-width: 540px) {
+  .banner-text-area  {
+    width: 100%;
+    height: 40%;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 420px) {
+    .banner-text-area p {
+      display: none;
+    }
+  }
