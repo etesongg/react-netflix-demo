@@ -3,6 +3,7 @@ import { useUpcomingMoviesQuery } from "../../../../hooks/useUpcomingMovies";
 import LoadingSpinner from "../../../components/Spinner/LoadingSpinner";
 import { responsive } from "../../../components/responsive";
 import { Alert } from "react-bootstrap";
+import MovieSlider from "../../../../common/MovieSlider/MovieSlider";
 
 const UpcomingMovieSlide = () => {
   const { data, isLoading, isError, error } = useUpcomingMoviesQuery();
@@ -14,9 +15,9 @@ const UpcomingMovieSlide = () => {
   }
   return (
     <div>
-      <UpcomingMovieSlide
+      <MovieSlider
         title={"Upcoming Movies"}
-        movies={data.result}
+        movies={data.results}
         responsive={responsive}
       />
     </div>
