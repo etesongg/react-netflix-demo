@@ -1,10 +1,23 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
-import "./MovieCard.style.css"
+import "./MovieCard.style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faUsers, faStar } from "@fortawesome/free-solid-svg-icons";
+import useMovieGenreQuery from "../../hooks/useMovieGenre";
 
-const MovieCard = ({movie}) => {
+const MovieCard = ({ movie }) => {
+  const { data: genreData } = useMovieGenreQuery(); // : 앞에 있는걸 뒤에 있는걸로 재정의 하겠다는 의미
+
+  // 장르 변환 함수
+  const showGenre = (genreIdList) => {
+    if (!genreData) return [];
+    const genreNameList = genreIdList.map((id) => {
+      const genreObj = genreData.find((genre) => genre.id === id);
+      return genreObj.name;
+    });
+    return genreNameList;
+  };
+
   return (
     <div
       style={{
@@ -13,17 +26,31 @@ const MovieCard = ({movie}) => {
           `https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}` +
           ")",
       }}
-      className="movie-card"
+      className="movie-poster"
     >
       <div className="overlay">
         <h1>{movie.title}</h1>
-        {movie.genre_ids?.length > 0
-          ? movie.genre_ids.map((id) => <Badge bg="secondary">{id}</Badge>)
+        {showGenre(movie.genre_ids)?.length > 0
+          ? showGenre(movie.genre_ids).map((id) => (
+              <Badge bg="secondary">{id}</Badge>
+            ))
           : ""}
         <div>
-          <div>{movie.vote_average}</div>
-          <div><FontAwesomeIcon icon={faUsers} className="icon-padding"/>{movie.popularity}</div>
-          <div>{movie.adult ? <Badge bg="danger">18</Badge> : <Badge bg="success">Under 18</Badge>}</div>
+          <div className="div-margin">
+            {movie.adult ? (
+              <Badge bg="danger">18</Badge>
+            ) : (
+              <Badge bg="success">ALL</Badge>
+            )}
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faStar} className="icon-padding" />
+            {Math.ceil(movie.vote_average)}
+          </div>
+          <div>
+            <FontAwesomeIcon icon={faUsers} className="icon-padding" />
+            {movie.popularity}
+          </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import { responsive } from "../../../components/responsive";
 
 const PopularMovieSlide = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
+  console.log(data)
   if (isLoading) {
     return <LoadingSpinner />;
   }

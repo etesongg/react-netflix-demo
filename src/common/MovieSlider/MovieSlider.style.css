@@ -4,4 +4,12 @@
 }
 .movieslider-title {
     margin-left: 5px;
+    font-family: 'Paperlogy-4Regular';
+}
+
+@font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
 }

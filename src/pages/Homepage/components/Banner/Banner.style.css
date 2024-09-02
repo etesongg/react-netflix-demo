@@ -52,4 +52,9 @@
     .banner-text-area p {
       display: none;
     }
-  }
+  @media (max-width: 525px){
+      .banner-text-area p {
+        padding-bottom: 5px !important;
+      }
+   }
+}

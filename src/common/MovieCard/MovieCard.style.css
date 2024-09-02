@@ -1,33 +1,52 @@
-.movie-card {
-    width: 220px;
-    height: 330px;
-    background-size: cover;
-    cursor: pointer;
-    transition: 0.5s;
+.movie-poster {
+  width: 220px;
+  height: 330px;
+  background-size: cover;
+  cursor: pointer;
+  transition: 0.5s;
 }
 .overlay {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(43, 41, 41, 0.9);
-    opacity: 0; 
-    transition: all 1s;
-    font-weight: bold;
-    overflow-wrap: break-word; 
-    padding: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 41, 41, 0.9);
+  opacity: 0;
+  transition: all 1s;
+  font-weight: bold;
+  overflow-wrap: break-word;
+  padding: 6px;
 }
 
 .overlay:hover {
-    opacity: 1;
+  opacity: 1;
 }
-.movie-card:hover {
-    transform: scale(1.3) translateZ(20px);
-    z-index: 2;
+.movie-poster:hover {
+  transform: scale(1.3) translateZ(20px);
+  z-index: 2;
 }
 
 .bg-secondary {
-    margin-left: 3px;
-    margin-bottom: 3px;
+  margin-left: 3px;
+  margin-bottom: 3px;
 }
 .icon-padding {
-    padding-right: 3px;
+  padding-right: 3px;
+}
+.div-margin {
+  margin-left: 3px;
+}
+
+@media (max-width: 1450px){
+    .movie-poster{
+        width: 210px
+    }
+}
+@media (max-width: 768px) {
+    .movie-poster{
+        width: 190px
+    }
+}
+@media (max-width: 375px) {
+    .movie-poster{
+        width: 183px
+    }
 }
