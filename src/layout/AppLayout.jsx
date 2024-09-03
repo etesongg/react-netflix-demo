@@ -44,10 +44,10 @@ const AppLayout = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/" style={{ color: "white" }}>
+              <Nav.Link href="/" >
                 Home
               </Nav.Link>
-              <Nav.Link href="/movies" style={{ color: "white" }}>
+              <Nav.Link href="/movies" >
                 Movies
               </Nav.Link>
             </Nav>

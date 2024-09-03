@@ -4,6 +4,10 @@
   background-size: cover;
   cursor: pointer;
   transition: 0.5s;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin: 0 auto;
 }
 .overlay {
   width: 100%;
@@ -14,6 +18,15 @@
   font-weight: bold;
   overflow-wrap: break-word;
   padding: 6px;
+  color: white;
+}
+.col-lg-4, .col-md-6, .col-12 {
+  padding-left: 0 !important;  
+  padding-right: 0 !important; 
+}
+.parent {
+  display: flex; 
+  justify-content: center; 
 }
 
 .overlay:hover {
@@ -49,4 +62,5 @@
     .movie-poster{
         width: 183px
     }
+
 }

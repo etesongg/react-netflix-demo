@@ -11,11 +11,28 @@
     display: flex;
     justify-content: center;  /* 가로축 정렬 */
     align-items: center;      /* 세로축 정렬 */
-
+    color: white;
   }
 
 .parent > .col {
     background-position: center !important;
+}
+
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; 
+}
+.page-link {
+    background-color: black !important;
+    border-color: #E50914 !important;
+    color: white !important;
+}
+.page-link:hover {
+    background-color: #E50914 !important;
+}
+.pagination .active .page-link {
+    background-color: #E50914 !important;
 }
 
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "react-bootstrap";
+import { Badge, Col, Row } from "react-bootstrap";
 import "./MovieCard.style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faStar } from "@fortawesome/free-solid-svg-icons";
@@ -19,41 +19,44 @@ const MovieCard = ({ movie }) => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage:
-          "url(" +
-          `https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path}` +
-          ")",
-      }}
-      className="movie-poster"
-    >
-      <div className="overlay">
-        <h1>{movie.title}</h1>
-        {showGenre(movie.genre_ids)?.length > 0
-          ? showGenre(movie.genre_ids).map((id) => (
-              <Badge bg="secondary">{id}</Badge>
-            ))
-          : ""}
-        <div>
-          <div className="div-margin">
-            {movie.adult ? (
-              <Badge bg="danger">18</Badge>
-            ) : (
-              <Badge bg="success">ALL</Badge>
-            )}
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faStar} className="icon-padding" />
-            {Math.ceil(movie.vote_average)}
-          </div>
-          <div>
-            <FontAwesomeIcon icon={faUsers} className="icon-padding" />
-            {movie.popularity}
+    <Row className="justify-content-center">
+      <Col className="col-lg-4 col-md-6 col-12">
+        <div
+          style={{
+            backgroundImage: `url(https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path})`,
+          }}
+          className="movie-poster"
+        >
+          <div className="overlay">
+            <h1>{movie.title}</h1>
+            {showGenre(movie.genre_ids)?.length > 0
+              ? showGenre(movie.genre_ids).map((id) => (
+                  <Badge bg="secondary" key={id}>
+                    {id}
+                  </Badge>
+                ))
+              : ""}
+            <div>
+              <div className="div-margin">
+                {movie.adult ? (
+                  <Badge bg="danger">18</Badge>
+                ) : (
+                  <Badge bg="success">ALL</Badge>
+                )}
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faStar} className="icon-padding" />
+                {movie.vote_average}
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faUsers} className="icon-padding" />
+                {movie.popularity}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 };
 
