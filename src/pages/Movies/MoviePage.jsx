@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSearchMovieQuery } from "../../hooks/useSearchMovie";
 import { useSearchParams } from "react-router-dom";
 import { Alert, Button, Col, Container, Row } from "react-bootstrap";
@@ -7,6 +7,7 @@ import LoadingSpinner from "../components/Spinner/LoadingSpinner";
 import "./MoviePage.style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ReactPaginate from 'react-paginate';
 
 // 경로 2가지
 // nav바에서 클릭해서 온 경우 => popularMovie 보여주기
@@ -18,9 +19,12 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 // page 값이 바뀔때 마다 useSearchMovie에 page까지 넣어서 fetch
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
+  const [page, setPage] = useState(1);
   const keyword = query.get("q");
-  const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword });
-  console.log("ddd", data);
+  const { data, isLoading, isError, error } = useSearchMovieQuery({ keyword, page });
+  const handlePageClick = ({ selected }) => {
+    setPage(selected + 1)
+  }
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -38,7 +42,7 @@ const MoviePage = () => {
             Filter <FontAwesomeIcon icon={faArrowRight} />
           </Button>{" "}
         </Col>
-        
+
         <Col lg={8} xs={12}>
           <Row className="parent">
             {data?.results.map((movie, index) => (
@@ -47,8 +51,28 @@ const MoviePage = () => {
               </Col>
             ))}
           </Row>
+          <ReactPaginate
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={2}
+            pageCount={data?.total_pages} // 전체 페이지 수
+            previousLabel="< previous"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            containerClassName="pagination"
+            activeClassName="active"
+            renderOnZeroPageCount={null}
+            forcePage={page - 1}
+          />
         </Col>
-        
       </Row>
     </Container>
   );
