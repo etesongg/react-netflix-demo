@@ -28,6 +28,7 @@ const MoviePage = () => {
     keyword,
     page,
   });
+  console.log("MoviePage",data)
   const handlePageClick = ({ selected }) => {
     setPage(selected + 1);
   };

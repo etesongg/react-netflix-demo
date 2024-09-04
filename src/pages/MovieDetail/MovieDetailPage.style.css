@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+.container {
+    margin-top: 10px;
+    color: white;
+}
+.detail-info {
+    font-family: 'Paperlogy-3Light' !important;
+}
+
+.main-poster {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 350px;
+    height: 470;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 0 auto;
+}
+.genre-badge, .etc-badge {
+    font-size: 16px !important ;
+    border-radius: 10px;
+    margin: 5px;
+}
+.etc-badge, .span-margin {
+    margin-right: 7px;
+}
+.detail-title {
+    font-size: 40px;
+}
+
+.review-area {
+    margin: 10px;
+}

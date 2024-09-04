@@ -4,9 +4,12 @@ import "./MovieCard.style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faStar } from "@fortawesome/free-solid-svg-icons";
 import useMovieGenreQuery from "../../hooks/useMovieGenre";
+import { useNavigate } from "react-router-dom";
+
 
 const MovieCard = ({ movie }) => {
   const { data: genreData } = useMovieGenreQuery(); // : 앞에 있는걸 뒤에 있는걸로 재정의 하겠다는 의미
+  const navigate = useNavigate()
 
   // 장르 변환 함수
   const showGenre = (genreIdList) => {
@@ -25,7 +28,7 @@ const MovieCard = ({ movie }) => {
           style={{
             backgroundImage: `url(https://media.themoviedb.org/t/p/w300_and_h450_bestv2${movie.poster_path})`,
           }}
-          className="movie-poster"
+          className="movie-poster" onClick={()=>navigate(`/movies/${movie.id}`)}
         >
           <div className="overlay">
             <h1>{movie.title}</h1>
